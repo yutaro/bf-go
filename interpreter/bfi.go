@@ -11,7 +11,7 @@ var (
 	ptr   = 0
 	plen  int
 	bPair = make(map[int]int)
-	buf   = make([]int, 100)
+	buf   = make([]int, 100000)
 )
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 
 	var (
 		bHead = 0
-		bBuf  = make([]int, 100)
+		bBuf  = make([]int, 1000)
 	)
 
 	for i, r := range data {
