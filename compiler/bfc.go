@@ -52,14 +52,6 @@ func declearInc(b *bfB, mod llvm.Module) {
 	b.CreateRetVoid()
 }
 
-func declearDec(b *bfB, mod llvm.Module) {
-	dec := llvm.FunctionType(llvm.VoidType(), []llvm.Type{llvm.Int32Type()}, false)
-	llvm.AddFunction(mod, "dec", dec)
-	llvm.AddBasicBlock(mod.NamedFunction("dec"), "entry")
-
-	b.CreateRetVoid()
-}
-
 func main() {
 	initializeLLVM()
 
@@ -74,7 +66,6 @@ func main() {
 	defer b.Dispose()
 
 	declearInc(b, mod)
-	declearDec(b, mod)
 
 	main := llvm.FunctionType(llvm.Int32Type(), []llvm.Type{}, false)
 	llvm.AddFunction(mod, "main", main)
